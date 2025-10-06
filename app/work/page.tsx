@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Artist Development - Nicole Scherzinger',
+    title: 'Artist Development - Top Performers',
     description: 'Performance coaching and creative development',
     image: '/images/work/nicole.jpg',
     category: 'Brand',

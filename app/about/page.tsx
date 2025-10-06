@@ -35,7 +35,7 @@ const milestones: TimelineItem[] = [
     highlights: [
       'Partnership with Interscope Records',
       'Transition to recording group',
-      'Nicole Scherzinger as lead vocalist',
+      'Assembled talented lead vocalist and lineup',
     ],
   },
   {
@@ -91,7 +91,6 @@ const milestones: TimelineItem[] = [
 ]
 
 const collaborators = [
-  'Nicole Scherzinger',
   'A.R. Rahman',
   'Timbaland',
   'Gwen Stefani',

@@ -74,7 +74,6 @@ const notableVisitors = [
   'Drew Barrymore',
   'Tracee Ellis Ross',
   'Cameron Diaz',
-  'Nicole Scherzinger',
   'Maddie Ziegler',
   'Paris Hilton',
   'Megan Thee Stallion',

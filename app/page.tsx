@@ -154,7 +154,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start gap-2 md:gap-3 text-sm md:text-base">
                   <span className="text-champagne mt-1 flex-shrink-0">•</span>
-                  <span>Launched careers of Nicole Scherzinger and more</span>
+                  <span>Launched careers of top performers worldwide</span>
                 </li>
                 <li className="flex items-start gap-2 md:gap-3 text-sm md:text-base">
                   <span className="text-champagne mt-1 flex-shrink-0">•</span>

@@ -33,7 +33,7 @@ const timeline: TimelineItem[] = [
     description: 'Robin transforms The Pussycat Dolls from live act to recording group, partnering with Interscope Records.',
     highlights: [
       'Partnership with Interscope Records',
-      'Nicole Scherzinger becomes lead vocalist',
+      'Assembled talented lead vocalist and lineup',
       'Transition from rotating to fixed lineup',
     ],
   },
@@ -177,8 +177,8 @@ export default function PussycatDollsPage() {
             <p>
               In 2003, Robin made the bold decision to transform the live act
               into a recording group. Partnering with <strong>Interscope
-              Records</strong> and featuring <strong>Nicole Scherzinger</strong>{' '}
-              as lead vocalist, The Pussycat Dolls evolved from underground
+              Records</strong> and assembling a talented lead vocalist and
+              lineup, The Pussycat Dolls evolved from underground
               sensation to global pop force.
             </p>
           </div>
