@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -21,6 +21,19 @@ const navigation = [
 export function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isLogoHovered, setIsLogoHovered] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const showFullName = isScrolled || isLogoHovered
 
   return (
     <header
@@ -31,9 +44,40 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-headline text-xl md:text-2xl tracking-tight text-white-warm transition-colors duration-240 min-h-[44px] flex items-center group"
+            onMouseEnter={() => setIsLogoHovered(true)}
+            onMouseLeave={() => setIsLogoHovered(false)}
+            className="font-headline text-xl md:text-2xl tracking-tight text-white-warm min-h-[44px] flex items-center overflow-hidden"
           >
-            Robin <span className="text-champagne">Antin</span>
+            <motion.div
+              initial={false}
+              animate={{ width: showFullName ? 'auto' : 'auto' }}
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              className="relative whitespace-nowrap"
+            >
+              <AnimatePresence mode="wait">
+                {showFullName ? (
+                  <motion.span
+                    key="full"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    Robin <span className="text-champagne">Antin</span>
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="short"
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                  >
+                    R<span className="text-champagne">A</span>
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
