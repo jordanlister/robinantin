@@ -70,8 +70,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
-        <ScrollProgress />
         <SmoothScrollProvider>
+          <ScrollProgress />
           <Header />
           <RouteTransitionProvider>
             <main>{children}</main>
