@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color tokens */
+    --background: 0 0 100%; /* #FFFFFF in HSL */
+    --foreground: 0 0 0%; /* #000000 */
+    --border: 0 0 85%;
+    --accent: 328 100% 54%; /* Hot Pink #FF1493 */
+    --accent-foreground: 0 0 100%;
+
+    /* Typography tokens */
+    --font-headline: 'Playfair Display', serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Motion tokens */
+    --duration-snap: 120ms;
+    --duration-fast: 180ms;
+    --duration-base: 240ms;
+    --duration-slow: 280ms;
+    --duration-slower: 320ms;
+    --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-snap: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    /* Spacing tokens */
+    --section-padding: clamp(3rem, 10vw, 10rem);
+    --container-padding: clamp(1rem, 5vw, 8rem);
+
+    /* Mobile-specific optimizations */
+    --mobile-header-height: 4rem;
+    --mobile-nav-padding: 1rem;
+  }
+
+  .dark {
+    --background: 0 0 0%; /* #000000 */
+    --foreground: 0 0 100%; /* #FFFFFF */
+    --border: 0 0 15%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    overscroll-behavior: none;
+    /* Improve mobile text rendering */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+
+  /* Remove default margins */
+  h1, h2, h3, h4, h5, h6, p, ul, ol {
+    @apply m-0;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-champagne ring-offset-2 ring-offset-background;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-champagne/30 text-white-warm;
+  }
+
+  /* Smooth scroll - will be enhanced with Lenis */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduced motion overrides */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Container utilities */
+  .container-padding {
+    @apply px-[var(--container-padding)];
+  }
+
+  .section-padding {
+    @apply py-[var(--section-padding)];
+  }
+
+  /* Text balance for headlines */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Premium link hover */
+  .link-hover {
+    @apply relative inline-block;
+  }
+
+  .link-hover::after {
+    @apply content-[''] absolute left-0 bottom-0 w-full h-[1px] bg-current origin-right scale-x-0 transition-transform duration-240;
+  }
+
+  .link-hover:hover::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+@layer utilities {
+  /* GPU-accelerated transforms */
+  .transform-gpu {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Editorial headline styles */
+  .headline-hero {
+    @apply text-hero font-headline tracking-tight leading-[0.95];
+  }
+
+  .headline-display {
+    @apply text-display font-headline tracking-tight leading-none;
+  }
+
+  /* Premium gradient text (NO PURPLE!) */
+  .text-gradient-champagne {
+    @apply bg-gradient-to-r from-champagne to-champagne-light bg-clip-text text-transparent;
+  }
+}
