@@ -13,7 +13,6 @@ const navigation = [
   { name: 'Work', href: '/work' },
   { name: 'Pussycat Dolls', href: '/pussycat-dolls' },
   { name: 'Playground LA', href: '/playground-la' },
-  { name: 'Studios', href: '/studios' },
   { name: 'Press', href: '/press' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' },
