@@ -5,6 +5,7 @@ import { RouteTransitionProvider } from '@/components/providers/route-transition
 import { SmoothScrollProvider } from '@/components/providers/smooth-scroll-provider'
 import { Header } from '@/components/organisms/header'
 import { Footer } from '@/components/organisms/footer'
+import { ScrollProgress } from '@/components/atoms/scroll-progress'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
+        <ScrollProgress />
         <SmoothScrollProvider>
           <Header />
           <RouteTransitionProvider>
